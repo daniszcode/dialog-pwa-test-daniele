@@ -1,16 +1,22 @@
 import { useQuery } from "@apollo/client";
-import { List } from "../components/Cards/interface";
-import { Container } from "../components/Cards/styles";
+import Grid from "@mui/material/Grid";
+import ListItemText from "@mui/material/ListItemText";
+import React from "react";
+import {
+  CardImage,
+  CardUser,
+  Container,
+  Table,
+} from "../components/Cards/styles";
 import { GET_USER } from "../helpers/GET_USER";
+import { User } from "./interface";
 
 export const ProfileScreen = () => {
-  const { data } = useQuery<{ user: List[] }>(GET_USER);
-  console.log(data);
-
+  const { data } = useQuery<{ user: User[] }>(GET_USER);
+  console.log(data?.user);
   return (
     <Container>
-      <h1>profile</h1>
-      {/* <Grid container spacing={1}>
+      <Grid container spacing={1}>
         {data?.user?.map(
           ({
             _id,
@@ -31,19 +37,22 @@ export const ProfileScreen = () => {
                 <ListItemText>company: {company}</ListItemText>
                 <ListItemText>email: {email}</ListItemText>
                 <ListItemText>
+                  friends
                   <Table className="option--req--friends" key={_id}>
-                    <ListItemText>name: {name}</ListItemText>
-                    <ListItemText>age: {age}</ListItemText>
-                    <ListItemText>eyeColor: {eyeColor}</ListItemText>
-                    <ListItemText>company: {company}</ListItemText>
-                    <ListItemText>email: {email}</ListItemText>
+                    <ListItemText>name: {friends.name}</ListItemText>
+                    <ListItemText>age: {friends.age}</ListItemText>
+                    <ListItemText>eyeColor: {friends.eyeColor}</ListItemText>
+                    <ListItemText>company: {friends.company}</ListItemText>
+                    <ListItemText>email: {friends.email}</ListItemText>
                   </Table>
                 </ListItemText>
               </Table>
             </CardUser>
           )
         )}
-      </Grid> */}
+      </Grid>
     </Container>
   );
 };
+
+//*pegar o Id com o component pai
