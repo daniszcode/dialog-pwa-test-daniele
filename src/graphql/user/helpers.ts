@@ -25,7 +25,7 @@ const userFetch = async () => {
 
 let data: any[] = [];
 
-export const user = (_: any, name: any) =>
+export const user = (_: any, name: any = "") =>
   userFetch().then((item) => {
     const _name = name;
     item.forEach(
@@ -39,6 +39,7 @@ export const user = (_: any, name: any) =>
         company,
         email,
         phone,
+        friends,
       }: any) => {
         if (name === _name.name) {
           data.push({
@@ -51,6 +52,7 @@ export const user = (_: any, name: any) =>
             company,
             email,
             phone,
+            friends,
           });
         } else {
           false;
@@ -59,6 +61,5 @@ export const user = (_: any, name: any) =>
     );
 
     userLoader();
-
     return data[0];
   });

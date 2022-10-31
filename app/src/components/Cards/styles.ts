@@ -25,7 +25,6 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   align-items: center;
-  background-color: #11202e;
   padding: 80px;
 `;
 
@@ -35,4 +34,19 @@ export const Title = styled.h1`
 
 export const Table = styled.ul`
   list-style-type: none;
+`;
+
+export const Header = styled.header`
+  display: flex;
+  width: 100%;
+  height: 150px;
+  justify-content: start;
+  align-items: center;
+  gap: 50px;
+`;
+
+export const Input = styled.input`
+  width: 350px;
+  height: 40px;
+  border-radius: 50px;
 `;

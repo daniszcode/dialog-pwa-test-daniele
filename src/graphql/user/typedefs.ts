@@ -41,5 +41,6 @@ export const userTypeDefs = gql`
     company: String!
     email: String!
     phone: String!
+    friends: [Friends!]!
   }
 `;

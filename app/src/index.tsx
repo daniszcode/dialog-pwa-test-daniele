@@ -1,8 +1,7 @@
 import { ApolloProvider } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CardHome } from "./components/Card/index";
-import "./index.css";
+import { CardHome } from "./components/Cards";
 import client from "./service/apollo";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -10,8 +9,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <CardHome />
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
+      <CardHome />
     </ApolloProvider>
   </React.StrictMode>
 );
